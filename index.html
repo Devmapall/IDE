@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/style.css" media="screen">
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <link rel="stylesheet" href="css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                var wrapper_h = $("#wrapper").css("height").split("px")[0];
+                
+                $("#links").hover(
+                        function() {
+                            $(this).animate({
+                                width: 250
+                            }, 500);
+                        },
+                        function() {
+                            $(this).animate({
+                                width: 50,
+                            }, 500);
+                        }
+                );
+
+                $("#rechts").hover(
+                        function() {
+                            $(this).animate({
+                                width: 250
+                            }, 500);
+                        },
+                        function() {
+                            $(this).animate({
+                                width: 50,
+                            }, 500);
+                        }
+                );
+        
+                $("#footer").hover(
+                        function() {
+                            var old_h = $("#wrapper").css("height").split("px")[0];
+                            $("#wrapper").animate({
+                                height: old_h-200
+                            }, 500);
+                            $(this).animate({
+                                height: 250
+                            }, 500);
+                        },
+                        function() {
+                            $("#wrapper").animate({
+                                height: wrapper_h
+                            }, 500);
+                            $(this).animate({
+                                height: 50
+                            }, 500);
+                        }
+                );
+                
+            });
+        </script>
+        <style type="text/css" media="screen">
+            #editor { 
+                height: 100%;
+                width: auto;
+            }        
+        </style>
+    </head>
+    <body>
+        <div id="head">
+            
+        </div>
+        <div id="wrapper">
+            <div id="links">Links</div>
+            <div id="rechts">Rechts</div>
+            <div id="editor"></div>
+        </div>
+        <div id="footer"></div>
+        <script src="src-noconflict/ace.js"></script>
+        <script>
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/twilight");
+            editor.getSession().setMode("ace/mode/php");
+        </script>
+    </body>
+</html>

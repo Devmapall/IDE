@@ -13,12 +13,16 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/jquery-ui.min.css">
         <link rel="stylesheet" href="css/jquery-ui.structure.min.css">
         <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+        <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+        <link rel="stylesheet" href="jqwidgets/styles/jqx.darkblue.css" type="text/css" />
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+        <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
         <script type="text/javascript">
             $(function() {
                 var wrapper_h = $("#wrapper").css("height").split("px")[0];
-                
+
                 $("#links").hover(
                         function() {
                             $(this).animate({
@@ -44,12 +48,12 @@ and open the template in the editor.
                             }, 500);
                         }
                 );
-        
+
                 $("#footer").hover(
                         function() {
                             var old_h = $("#wrapper").css("height").split("px")[0];
                             $("#wrapper").animate({
-                                height: old_h-200
+                                height: old_h - 200
                             }, 500);
                             $(this).animate({
                                 height: 250
@@ -64,31 +68,116 @@ and open the template in the editor.
                             }, 500);
                         }
                 );
-                
+
+                $("#tabs > ul > li").hover(
+                        function() {
+                            $(this).find("a > img").show();
+                            $(this).css("background-color","#222222");
+                            $(this).css("color","white");
+                        },
+                        function() {
+                            $(this).find("a > img").hide();
+                            $(this).css("background-color","#cccccc");
+                            $(this).css("color","black");
+                        }
+                );
+        
+                $("#tabs > ul > li > a").click(function() {
+                   $(this).parent().fadeOut(500); 
+                });
+            });
+        </script>
+        <script>
+            $(function() {
+                $("#jqxMenu").jqxMenu({width: 'auto', height: '30px', animationShowDuration: 300, animationHideDuration: 200, animationShowDelay: 200});
             });
         </script>
         <style type="text/css" media="screen">
             #editor { 
                 height: 100%;
                 width: auto;
-            }        
+            }     
+
         </style>
     </head>
     <body>
         <div id="head">
-            
-        </div>
-        <div id="wrapper">
-            <div id="links">Links</div>
-            <div id="rechts">Rechts</div>
-            <div id="editor"></div>
-        </div>
-        <div id="footer"></div>
-        <script src="src-noconflict/ace.js"></script>
-        <script>
+            <div id="menu">
+                <div id='jqxWidget'>
+                   <div id='jqxMenu' style='margin-left:5px;margin-right:5px;'>
+                    <ul>
+                        <li>File
+                            <ul style='width: 250px;'>
+                                <li><a href="#Education">New Project</a></li>
+                                <li><a href="#newFile">New File</a></li>
+                                <li><a href="#Financial">Open Project</a></li>
+                                <li><a href="#openFile">Open File</a></li>
+                                <li><a href="#testFile">Test File</a></li>
+                                <li><a href="#importProject">Import Project</a>
+                                    <ul>
+                                        <li><a href="#importGit">from Git</a></li>
+                                        <li><a href="#importSVN">from SVN</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Project
+                            <ul>
+                                <li><a href="#PCProducts">Commit & Push</a></li>
+                                <li><a href="#testProject">Run tests</a></li>
+                                <li><a href="#MobileProducts">Rollout</a></li>
+                            </ul>
+                        </li>
+                        <li>Config
+                            <ul style='width: 200px;'>
+                                <li><a href="#SupportHome">IDE Styling</a></li>
+                                <li><a href="#CustomerService">Syntax Highlighter</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+                <div id="tabs">
+                    <ul>
+                        <li>Fiiiiiillllllleeeee.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
+                        <li>File.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
+                        <li>File.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
+                        <li>File.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
+                        <li>File.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
+                    </ul>
+                </div>
+                <div id="icons"></div>
+            </div>
+            <div id="wrapper">
+                <div id="links">Links</div>
+                <div id="rechts">Rechts</div>
+                <div id="editor"></div>
+            </div>
+            <div id="footer"></div>
+            <script src="src/ace.js"></script>
+            <script>
             var editor = ace.edit("editor");
             editor.setTheme("ace/theme/twilight");
             editor.getSession().setMode("ace/mode/php");
-        </script>
+
+            editor.commands.addCommand({
+                name: 'autocomplete',
+                bindKey: {win: 'Ctrl-Space', mac: 'Command-Space'},
+                exec: function(editor) {
+                    console.log("autocomplete");
+                },
+                readOnly: true // false if this command should not apply in readOnly mode
+            });
+
+            editor.commands.addCommand({
+                name: 'save',
+                bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
+                exec: function(editor) {
+                    console.log("save");
+                },
+                readOnly: true // false if this command should not apply in readOnly mode
+            });
+            </script>
     </body>
 </html>

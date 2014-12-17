@@ -6,6 +6,7 @@ html, body {
 
 #head {
     height: 5%;
+    min-height: 80px;
     width: 100%;
     background-color: #CCC;
     border-bottom: 1px solid black;
@@ -36,5 +37,47 @@ html, body {
          float: right;
          border-left:1px solid black;
 }
+#tabs {
+        height: 14px;
+        width:auto;
+        margin-top: 4px;
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: #ccc;
+}
 
-#inhalt {height: calc(100%-30px);}
+#tabs ul {
+    border: 1px solid #222;
+    border-bottom: 0px;
+    background-color: #ccc;
+    border-radius: 4px;
+    margin: 0;
+    margin-top: 5px;
+    padding: 12px;
+    list-style-type: none;
+    height: 14px;
+}
+
+#tabs ul li {
+    display: inline;
+    border: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #222;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#tabs ul li a img {
+    display:none;
+}
+
+#tabs ul li a img {
+    height: 16px;
+    width: 16px;
+    margin-left: 10px;
+    display:none;
+}

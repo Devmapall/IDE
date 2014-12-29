@@ -22,7 +22,8 @@ and open the template in the editor.
         <script type="text/javascript">
             $(function() {
                 var wrapper_h = $("#wrapper").css("height").split("px")[0];
-
+                var editor = ace.edit("editor");
+                
                 $("#links").hover(
                         function() {
                             $(this).animate({
@@ -85,6 +86,12 @@ and open the template in the editor.
                 $("#tabs > ul > li > a").click(function() {
                    $(this).parent().fadeOut(500); 
                 });
+                
+                $(".theme").click(function(e) {
+                    var name = $(this).text().toLowerCase();
+                    console.log("click "+name);
+                    editor.setTheme("ace/theme/"+name);
+               });
             });
         </script>
         <script>
@@ -96,6 +103,7 @@ and open the template in the editor.
             #editor { 
                 height: 100%;
                 width: auto;
+                font-size: 1.0em;
             }     
 
         </style>
@@ -108,30 +116,64 @@ and open the template in the editor.
                     <ul>
                         <li>File
                             <ul style='width: 250px;'>
-                                <li><a href="#Education">New Project</a></li>
-                                <li><a href="#newFile">New File</a></li>
-                                <li><a href="#Financial">Open Project</a></li>
-                                <li><a href="#openFile">Open File</a></li>
-                                <li><a href="#testFile">Test File</a></li>
-                                <li><a href="#importProject">Import Project</a>
+                                <li><a>New Project</a></li>
+                                <li><a>New File</a></li>
+                                <li><a>Open Project</a></li>
+                                <li><a>Open File</a></li>
+                                <li><a>Test File</a></li>
+                                <li><a>Import Project</a>
                                     <ul>
-                                        <li><a href="#importGit">from Git</a></li>
-                                        <li><a href="#importSVN">from SVN</a></li>
+                                        <li><a>from Git</a></li>
+                                        <li><a>from SVN</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         <li>Project
                             <ul>
-                                <li><a href="#PCProducts">Commit & Push</a></li>
-                                <li><a href="#testProject">Run tests</a></li>
-                                <li><a href="#MobileProducts">Rollout</a></li>
+                                <li><a>Commit & Push</a></li>
+                                <li><a>Run tests</a></li>
+                                <li><a>Rollout</a></li>
                             </ul>
                         </li>
                         <li>Config
                             <ul style='width: 200px;'>
-                                <li><a href="#SupportHome">IDE Styling</a></li>
-                                <li><a href="#CustomerService">Syntax Highlighter</a></li>
+                                <li><a>IDE Styling</a></li>
+                                <li>Syntax Highlighter
+                                    <ul style="width:200px;">
+                                        <li><a class="theme">Ambiance</a></li>
+                                        <li><a class="theme">Chaos</a></li>
+                                        <li><a class="theme">Chrome</a></li>
+                                        <li><a class="theme">Clouds</a></li>
+                                        <li><a class="theme">Clouds_midnight</a></li>
+                                        <li><a class="theme">Cobalt</a></li>
+                                        <li><a class="theme">Crimson_editor</a></li>
+                                        <li><a class="theme">Dawn</a></li>
+                                        <li><a class="theme">Dreamweaver</a></li>
+                                        <li><a class="theme">Eclipse</a></li>
+                                        <li><a class="theme">Github</a></li>
+                                        <li><a class="theme">Idle_fingers</a></li>
+                                        <li><a class="theme">Katzenmilch</a></li>
+                                        <li><a class="theme">Kr_theme</a></li>
+                                        <li><a class="theme">kuroir</a></li>
+                                        <li><a class="theme">Merbivore_soft</a></li>
+                                        <li><a class="theme">Mono_industrial</a></li>
+                                        <li><a class="theme">Monokai</a></li>
+                                        <li><a class="theme">Pastel_on_dark</a></li>
+                                        <li><a class="theme">Solarized_dark</a></li>
+                                        <li><a class="theme">Solarized_light</a></li>
+                                        <li><a class="theme">Terminal</a></li>
+                                        <li><a class="theme">Textmate</a></li>
+                                        <li><a class="theme">Tomorrow</a></li>
+                                        <li><a class="theme">Tomorrow_night</a></li>
+                                        <li><a class="theme">Tomorrow_night_blue</a></li>
+                                        <li><a class="theme">Tomorrow_night_bright</a></li>
+                                        <li><a class="theme">Tomorrow_night_eighties</a></li>
+                                        <li><a class="theme">Twilight</a></li>
+                                        <li><a class="theme">Vibrant_ink</a></li>
+                                        <li><a class="theme">Xcode</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -159,13 +201,14 @@ and open the template in the editor.
             <script>
             var editor = ace.edit("editor");
             editor.setTheme("ace/theme/twilight");
-            editor.getSession().setMode("ace/mode/php");
+            editor.getSession().setMode("ace/mode/hhvm");
 
             editor.commands.addCommand({
                 name: 'autocomplete',
                 bindKey: {win: 'Ctrl-Space', mac: 'Command-Space'},
                 exec: function(editor) {
                     console.log("autocomplete");
+                    
                 },
                 readOnly: true // false if this command should not apply in readOnly mode
             });
@@ -174,7 +217,7 @@ and open the template in the editor.
                 name: 'save',
                 bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
                 exec: function(editor) {
-                    console.log("save");
+                    console.log(editor.getValue());
                 },
                 readOnly: true // false if this command should not apply in readOnly mode
             });

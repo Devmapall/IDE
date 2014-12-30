@@ -47,7 +47,7 @@ function getProject(project) {
                     $(list).append('</ul>');
                } else {
                   
-                   rec(item);
+                   //rec(item);
                }
             });
         }

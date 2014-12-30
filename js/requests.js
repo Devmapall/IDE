@@ -47,10 +47,10 @@ function getProject(project) {
                         ul.append('<li>'+val+'</li>');
                     });
                } else {
-                  $(node).append('<li>'+i+'</li>');
-                  $(node).append("<ul>");
-                  rec(item);
-                  node.append('</ul>');
+                  node.append('<li>'+i+'</li>');
+                  var ul = $("<ul></ul>");
+                  node.append(ul);
+                  rec(ul,item);
                }
             });
         }

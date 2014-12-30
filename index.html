@@ -131,12 +131,12 @@ and open the template in the editor.
                 });
                 
                 $("#leftAnimation").click(function() {
-                    if($(this).width() > 50) {
-                        $(this).animate({
+                    if($("#left").width() > 50) {
+                        $("#left").animate({
                             width: 250
                         }, 500);
                     } else {
-                        $(this).animate({
+                        $("#left").animate({
                             width: 50
                         }, 500);
                     }

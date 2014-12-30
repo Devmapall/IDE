@@ -132,13 +132,13 @@ and open the template in the editor.
                 
                 $("#leftAnimation").click(function() {
                     console.log("klickibunti");
-                    if($("#links").width() >= 50) {
+                    if($("#links").width() > 50) {
                         $("#links").animate({
-                            width: 250
+                            width: 50
                         }, 500);
                     } else {
                         $("#links").animate({
-                            width: 50
+                            width: 250
                         }, 500);
                     }
                 });

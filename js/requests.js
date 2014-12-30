@@ -41,14 +41,15 @@ function getProject(project) {
                    $(node).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
                } else if($.isArray(item)){
                    $(node).append('<li>'+i+'</li>');
-                   var test = $(node).append("<ul>");
-                   console.log(test);
+                   $(node).append("<ul>");
+                   var bla = $(node).find("<ul>");
+                   console.log(bla);
                    $.each(item,function(i,val) {
                         $(test).append('<li>'+val+'</li>');
                     });
                } else {
-                  var parent = $(node).append('<li>'+i+'</li>');
-                  $(parent).append("<ul>");
+                  $(node).append('<li>'+i+'</li>');
+                  $(node).append("<ul>");
                   rec(item);
                   node.append('</ul>');
                }

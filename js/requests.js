@@ -11,6 +11,7 @@ function getProjects() {
         },
         crossDomain: true
     }).done(function(data) {
+        console.log(data);
         data.Projects.each(function(i,item) {
             $("#openProjectsDialog > ul").append("<li>"+item+"</li>");
             $("#openProjectsDialog").dialog("open");

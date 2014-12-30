@@ -44,7 +44,7 @@ function getProject(project) {
                    var ul = $("<ul></ul>");
                    node.append(ul);
                    $.each(item,function(i,val) {
-                        ul.append('<li>'+val+'</li>');
+                        ul.append('<li data-jstree=\'{"type":"file"}\'>'+val+'</li>');
                     });
                     li.append(ul);
                     node.append(li);
@@ -58,13 +58,13 @@ function getProject(project) {
             });
         }
         rec(list,data);
-        /*$("#tree").jstree({
+        $("#tree").jstree({
             "types": {
                 "file": {
                     "icon" : "jstree-file"
                 }
             },
             "plugins":["types"]
-        });*/
+        });
     });
 }

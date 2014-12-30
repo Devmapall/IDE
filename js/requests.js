@@ -49,10 +49,11 @@ function getProject(project) {
                     li.append(ul);
                     node.append(li);
                } else {
-                  node.append('<li>'+i+'</li>');
+                  var li = $('<li>'+i+'</li>');
                   var ul = $("<ul></ul>");
-                  node.append(ul);
+                  li.append(ul);
                   rec(ul,item);
+                  node.append(li);
                }
             });
         }

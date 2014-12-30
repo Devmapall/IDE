@@ -38,15 +38,17 @@ function getProject(project) {
         function rec(values) {
             $.each(values, function(i,item) {
                if($.isNumeric(i)) {
-                   $(list).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
+                   $(this).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
                } else if($.isArray(item)){
-                   $(list).append('<li>'+i+'</li>').append('<ul>');
+                   var node = $(this).append('<li>'+i+'</li><ul>');
                    $.each(item,function(i,val) {
-                        $(list).append('<li>'+val+'</li>');
+                        $(this).append('<li>'+val+'</li>');
                     });
-                    $(list).append('</ul>');
+                    node.append('</ul>');
                } else {
+                  var node = $(this).append('<li>'+i+'</li><ul>');
                   rec(item);
+                  node.append('</ul>');
                }
             });
         }

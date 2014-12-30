@@ -1,5 +1,5 @@
 function jsTree() {
-    $("#tree").on('selected_node.jstree', function(e,data) {
+    $("#tree").on('select_node.jstree', function(e,data) {
         console.log(data);
     }).jstree({
         "types": {

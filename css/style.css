@@ -87,5 +87,5 @@ html, body {
 #openProjectList  .ui-selecting { background: #FECA40; }
 #openProjectList  .ui-selected { background: #F39814; color: white; }
 #openProjectList  { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-#openProjectList  li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+#openProjectList  li { margin: 3px; padding: 0.4em; font-size: 1.0em; height: 18px; }
 

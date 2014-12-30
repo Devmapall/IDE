@@ -43,7 +43,7 @@ function getProject(project) {
         $("#tree").jstree({
             "types": {
                 "file": {
-                    "icon" : "glyphicon glyphicon-flash"
+                    "icon" : "jstree-file"
                 }
             },
             "plugins":["types"]

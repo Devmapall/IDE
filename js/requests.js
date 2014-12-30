@@ -14,7 +14,7 @@ function getProjects() {
         console.log(data.projects);
         $.each(data.projects, function(i,item) {
             console.log(item);
-            $("#openProjectDialog > ul").append("<li>"+item+"</li>");
+            $("#openProjectDialog > ul").append("<li>"+item.project+"</li>");
         });
                     $("#openProjectDialog").dialog("open");
     });

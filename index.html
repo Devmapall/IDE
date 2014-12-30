@@ -24,6 +24,7 @@ and open the template in the editor.
             $(function() {
                 var wrapper_h = $("#wrapper").css("height").split("px")[0];
 		var editor = ace.edit("editor");
+                $("#openProjectsDialog").dialog("autoOpen:false");
 				 
                 function apply() {
 
@@ -257,6 +258,11 @@ and open the template in the editor.
                 readOnly: true // false if this command should not apply in readOnly mode
             });
             </script>
+            <div id="openProjectDialog">
+                <ul style="list-style-type: none;">
+                    
+                </ul>
+            </div>
             <div id="files">
                 <textarea filename="issue.hh" class="file"><?hh //strict
 

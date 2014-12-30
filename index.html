@@ -131,7 +131,6 @@ and open the template in the editor.
                 });
                 
                 $("#leftAnimation").click(function() {
-                    console.log("klickibunti");
                     if($("#links").width() > 50) {
                         $("#links").animate({
                             width: 50
@@ -147,6 +146,10 @@ and open the template in the editor.
                             width: 250
                         }, 500);
                     }
+                });
+                
+                $('li[data-jstree=\'{"type":"file"}\']').on("click",function() {
+                    console.log("File click");
                 });
             });
         </script>

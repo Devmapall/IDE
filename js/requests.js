@@ -44,8 +44,9 @@ function getProject(project) {
                    var parent = $($(node).append("<ul>"));
                    $.each(item,function(i,val) {
                         $(parent).append('<li>'+val+'</li>');
+                    }).done(function() {
+                        node.append('</ul>');
                     });
-                    node.append('</ul>');
                } else {
                   var parent = $(node).append('<li>'+i+'</li>');
                   $(parent).append("<ul>");

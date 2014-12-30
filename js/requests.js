@@ -40,12 +40,14 @@ function getProject(project) {
                if($.isNumeric(i)) {
                    node.append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
                } else if($.isArray(item)){
-                   node.append('<li>'+i+'</li>');
+                   var li = $('<li>'+i+'</li>');
                    var ul = $("<ul></ul>");
                    node.append(ul);
                    $.each(item,function(i,val) {
                         ul.append('<li>'+val+'</li>');
                     });
+                    li.append(ul);
+                    node.append(li);
                } else {
                   node.append('<li>'+i+'</li>');
                   var ul = $("<ul></ul>");

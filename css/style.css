@@ -91,6 +91,8 @@ html, body {
     height: 20px;
     width: 20px;
     float: right;
+    z-index: 100;
+    background-color: green;
 }
 
 #openProjectList  .ui-selecting { background: #FECA40; }

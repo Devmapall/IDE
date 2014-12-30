@@ -40,13 +40,12 @@ function getProject(project) {
                if($.isNumeric(i)) {
                    $(node).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
                } else if($.isArray(item)){
-                   var parent = $( $(node).append('<li>'+i+'</li>') );
-                   var child = $( $(parent).append("<ul>") );
-                   console.log(child);
+                   $(node).append('<li>'+i+'</li>');
+                   var test = $(node).append("<ul>");
+                   console.log(test);
                    $.each(item,function(i,val) {
-                        $(child).append('<li>'+val+'</li>');
+                        $(test).append('<li>'+val+'</li>');
                     });
-                   $(parent).append("</ul>");
                } else {
                   var parent = $(node).append('<li>'+i+'</li>');
                   $(parent).append("<ul>");

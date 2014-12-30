@@ -143,6 +143,10 @@ and open the template in the editor.
                     $(this).addClass("active");
                     editor.setValue(content);
                 });
+                
+                $(".jstree-leaf").on("dblclick", function() {
+                    console.log("Dblclick: "+this);
+                });
             });
         </script>
         <script>

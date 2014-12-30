@@ -38,6 +38,8 @@ function getProject(project) {
         $.each(data, function(i,item) {
            if($.isNumeric(i)) {
                $(list).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
+           } else {
+               $(list).append('<li>'+item+'</li>')
            }
         });
         $("#tree").jstree({

@@ -46,19 +46,18 @@ function getProject(project) {
                     });
                     $(list).append('</ul>');
                } else {
-                  
-                   //rec(item);
+                  rec(item);
                }
             });
         }
         rec(data);
-        $("#tree").jstree({
+        /*$("#tree").jstree({
             "types": {
                 "file": {
                     "icon" : "jstree-file"
                 }
             },
             "plugins":["types"]
-        });
+        });*/
     });
 }

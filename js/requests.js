@@ -15,6 +15,7 @@ function getProjects() {
         $.each(data.projects, function(i,item) {
             $("#openProjectDialog > ul").append("<li>"+item.project+"</li>");
         });
+        $("#openProjectList").selectable();
         $("#openProjectDialog").dialog("open");
     });
     

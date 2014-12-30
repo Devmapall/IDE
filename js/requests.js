@@ -37,7 +37,7 @@ function getProject(project) {
         var list = $("#tree > ul");
         $.each(data, function(i,item) {
            if($.isNumeric(i)) {
-               $(list).append("<li>"+item+"</li>");
+               $(list).append('<li data-jstree="{"type":"file"}">'+item+"</li>");
            }
         });
         $("#tree").jstree({

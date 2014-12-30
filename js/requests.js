@@ -1,3 +1,16 @@
+function jsTree() {
+    $("#tree").on('selected_node.jstree', function(e,data) {
+        console.log(data);
+    }).jstree({
+        "types": {
+            "file": {
+                "icon" : "jstree-file"
+            }
+        },
+        "plugins":["types"]
+    });
+}
+
 function getProjects() {
     $.ajax({
         url: "http://ide.mykey.to:8080/index.hh",
@@ -58,13 +71,6 @@ function getProject(project) {
             });
         }
         rec(list,data);
-        $("#tree").jstree({
-            "types": {
-                "file": {
-                    "icon" : "jstree-file"
-                }
-            },
-            "plugins":["types"]
-        });
+        jsTree();
     });
 }

@@ -1,6 +1,6 @@
 function jsTree() {
     $("#tree").on('select_node.jstree', function(e,data) {
-        console.log(data);
+        console.log(data.node.text);
     }).jstree({
         "types": {
             "file": {

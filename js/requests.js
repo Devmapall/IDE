@@ -39,6 +39,7 @@ function getProject(project) {
            if($.isNumeric(i)) {
                $(list).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
            } else {
+               console.log(item);
                $(list).append('<li>'+item+'</li>')
            }
         });

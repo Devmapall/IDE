@@ -41,7 +41,7 @@ function getProject(project) {
                    $(list).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
                } else if($.isArray(item)){
                    $(list).append('<li>'+i+'</li>').append('<ul>');
-                   item.each(function(i,val) {
+                   $.each(item,function(i,val) {
                         $(list).append('<li>'+val+'</li>');
                     });
                     $(list).append('</ul>');

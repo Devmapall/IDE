@@ -1,13 +1,14 @@
 function jsTree() {
-    $("#tree").on('select_node.jstree', function(e,data) {
-        console.log(data.node.text);
-    }).jstree({
+    $("#tree").jstree({
+        "core": {
+            "check_callback": true
+        },
         "types": {
             "file": {
                 "icon" : "jstree-file"
             }
         },
-        "plugins":["types"]
+        "plugins":["contextmenu","types"]
     });
 }
 

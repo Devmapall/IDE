@@ -41,11 +41,7 @@ and open the template in the editor.
                 function apply() {
 
                     $("#links").mouseenter(
-                            function() {
-                                $(this).animate({
-                                    width: 250
-                                }, 500);
-                            });
+                            
                     $("#links").mouseleave(
                             function() {
                                 $(this).animate({
@@ -142,6 +138,18 @@ and open the template in the editor.
                     $("#tabs > ul > .active").removeClass("active");
                     $(this).addClass("active");
                     editor.setValue(content);
+                });
+                
+                $("#leftAnimation").click(function() {
+                    if($(this).width() > 50) {
+                        $(this).animate({
+                            width: 250
+                        }, 500);
+                    } else {
+                        $(this).animate({
+                            width: 50
+                        }, 500);
+                    }
                 });
             });
         </script>
@@ -242,6 +250,7 @@ and open the template in the editor.
             </div>
             <div id="wrapper">
                 <div id="links">
+                    <div id="leftAnimation"></div>
                     <div id="tree">
                         <ul>
                         </ul>

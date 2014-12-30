@@ -95,6 +95,10 @@ and open the template in the editor.
                     $("#tabs > ul").append('<li><a href="#"><img src="images/Close_Box_Red.png"></a>File.hh</li>');
                     apply();
                 });
+                
+                $("#openProject").click(function() {
+                    getProjects();
+                });
 
                 function checkForChanges()
                 {
@@ -150,7 +154,7 @@ and open the template in the editor.
                             <ul style='width: 250px;'>
                                 <li><a>New Project</a></li>
                                 <li><a id="createNewFile">New File</a></li>
-                                <li><a>Open Project</a></li>
+                                <li><a id="openProject">Open Project</a></li>
                                 <li><a>Open File</a></li>
                                 <li><a>Test File</a></li>
                                 <li><a>Import Project</a>

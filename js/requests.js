@@ -42,6 +42,7 @@ function getProject(project) {
                } else if($.isArray(item)){
                    $(node).append('<li>'+i+'</li>');
                    var parent = $($(node).append("<ul>"));
+                   console.log(parent);
                    $.each(item,function(i,val) {
                         $(parent).append('<li>'+val+'</li>');
                     }).done(function() {

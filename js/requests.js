@@ -35,14 +35,22 @@ function getProject(project) {
         crossDomain: true
     }).done(function(data) {
         var list = $("#tree > ul");
-        $.each(data, function(i,item) {
-           if($.isNumeric(i)) {
-               $(list).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
-           } else {
-               console.log(item);
-               $(list).append('<li>'+item+'</li>')
-           }
-        });
+        function rec(values) {
+            $.each(values, function(i,item) {
+               if($.isNumeric(i)) {
+                   $(list).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
+               } else if($.isArray(item)){
+                   $(list).append('<li>'+i+'</li>').append('<ul>');
+                   item.each(function(i,val) {
+                        $(list).append('<li>'+val+'</li>');
+                    });
+                    $(list).append('</ul>');
+               } else {
+                  
+                   rec(item);
+               }
+            });
+        }
         $("#tree").jstree({
             "types": {
                 "file": {

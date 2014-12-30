@@ -34,6 +34,8 @@ function getProject(project) {
         },
         crossDomain: true
     }).done(function(data) {
-        console.log(data);
+        $.each(data, function(i,item) {
+           console.log(i + " " + item);
+        });
     });
 }

@@ -35,24 +35,26 @@ function getProject(project) {
         crossDomain: true
     }).done(function(data) {
         var list = $("#tree > ul");
-        function rec(values) {
+        function rec(node,values) {
             $.each(values, function(i,item) {
                if($.isNumeric(i)) {
-                   $(this).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
+                   $(node).append('<li data-jstree=\'{"type":"file"}\'>'+item+"</li>");
                } else if($.isArray(item)){
-                   var node = $(this).append('<li>'+i+'</li><ul>');
+                   $(node).append('<li>'+i+'</li>');
+                   var parent = $($(node).append("<ul>"));
                    $.each(item,function(i,val) {
-                        $(this).append('<li>'+val+'</li>');
+                        $(parent).append('<li>'+val+'</li>');
                     });
                     node.append('</ul>');
                } else {
-                  var node = $(this).append('<li>'+i+'</li><ul>');
+                  var parent = $(node).append('<li>'+i+'</li>');
+                  $(parent).append("<ul>");
                   rec(item);
                   node.append('</ul>');
                }
             });
         }
-        rec(data);
+        rec(list,data);
         /*$("#tree").jstree({
             "types": {
                 "file": {

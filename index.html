@@ -40,12 +40,13 @@ and open the template in the editor.
 				 
                 function apply() {
 
-                    $("#links").hover(
+                    $("#links").mouseenter(
                             function() {
                                 $(this).animate({
                                     width: 250
                                 }, 500);
-                            },
+                            });
+                    $("#links").mouseleave(
                             function() {
                                 $(this).animate({
                                     width: 50,

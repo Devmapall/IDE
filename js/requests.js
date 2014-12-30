@@ -51,6 +51,7 @@ function getProject(project) {
                }
             });
         }
+        rec(data);
         $("#tree").jstree({
             "types": {
                 "file": {

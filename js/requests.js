@@ -11,10 +11,10 @@ function getProjects() {
         },
         crossDomain: true
     }).done(function(data) {
-        console.log(data.projects);
         data.projects.each(function(i,item) {
             $("#openProjectDialog > ul").append("<li>"+item+"</li>");
-            $("#openProjectDialog").dialog("open");
         });
+                    $("#openProjectDialog").dialog("open");
     });
+    
 }

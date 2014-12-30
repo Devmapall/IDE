@@ -34,8 +34,11 @@ function getProject(project) {
         },
         crossDomain: true
     }).done(function(data) {
+        var list = $("#tree > ul");
         $.each(data, function(i,item) {
-           console.log(i + " " + item);
+           if($.isNumeric(i)) {
+               $(list).append("<li>"+item+"</li>");
+           }
         });
     });
 }

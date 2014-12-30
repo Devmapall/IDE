@@ -55,13 +55,13 @@ function getProject(project) {
             });
         }
         rec(list,data);
-        $("#tree").jstree({
+        /*$("#tree").jstree({
             "types": {
                 "file": {
                     "icon" : "jstree-file"
                 }
             },
             "plugins":["types"]
-        });
+        });*/
     });
 }

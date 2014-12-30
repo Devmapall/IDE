@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 #head {
@@ -18,7 +19,7 @@ html, body {
 }
 
 #footer {
-    height: 5%;
+    height: 50px;
     width: 100%;
     background-color:#ccc;
     border-top: 1px solid black;
@@ -38,7 +39,7 @@ html, body {
          border-left:1px solid black;
 }
 #tabs {
-        height: 14px;
+        //height: 14px;
         width:auto;
         margin-top: 4px;
         margin-left: 5px;
@@ -53,31 +54,32 @@ html, body {
     border-radius: 4px;
     margin: 0;
     margin-top: 5px;
-    padding: 12px;
+    padding: 2px;
     list-style-type: none;
-    height: 14px;
+    //height: 14px;
 }
 
 #tabs ul li {
-    display: inline;
+    display: inline-block;
     border: solid;
     border-width: 1px 1px 1px 1px;
     border-color: #222;
-    padding-left: 20px;
+    padding-left: 10px;
     padding-right: 10px;
     padding-top: 3px;
     padding-bottom: 3px;
     cursor: pointer;
     margin-left: 10px;
-}
-
-#tabs ul li a img {
-    display:none;
+    margin-top: 7px;
 }
 
 #tabs ul li a img {
     height: 16px;
     width: 16px;
-    margin-left: 10px;
-    display:none;
+    //margin-left: 10px;
+    //display:none;
+}
+
+.file {
+    display: none;
 }

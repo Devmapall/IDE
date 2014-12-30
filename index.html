@@ -13,8 +13,8 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/jquery-ui.min.css">
         <link rel="stylesheet" href="css/jquery-ui.structure.min.css">
         <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
-        <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
-        <link rel="stylesheet" href="jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+        <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css">
+        <link rel="stylesheet" href="jqwidgets/styles/jqx.ui-le-frog.css" type="text/css" />
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
@@ -22,81 +22,111 @@ and open the template in the editor.
         <script type="text/javascript">
             $(function() {
                 var wrapper_h = $("#wrapper").css("height").split("px")[0];
-                var editor = ace.edit("editor");
+		var editor = ace.edit("editor");
+				 
+                function apply() {
+
+                    $("#links").hover(
+                            function() {
+                                $(this).animate({
+                                    width: 250
+                                }, 500);
+                            },
+                            function() {
+                                $(this).animate({
+                                    width: 50,
+                                }, 500);
+                            }
+                    );
+
+                    $("#rechts").hover(
+                            function() {
+                                $(this).animate({
+                                    width: 250
+                                }, 500);
+                            },
+                            function() {
+                                $(this).animate({
+                                    width: 50,
+                                }, 500);
+                            }
+                    );
+
+                    $("#footer").hover(
+                            function() {
+                                var old_h = $("#wrapper").css("height").split("px")[0];
+                                $("#wrapper").animate({
+                                    height: old_h - 200
+                                }, 500);
+                                $(this).animate({
+                                    height: 250
+                                }, 500);
+                            },
+                            function() {
+                                $("#wrapper").animate({
+                                    height: wrapper_h
+                                }, 500);
+                                $(this).animate({
+                                    height: 50
+                                }, 500);
+                            }
+                    );
+
+                    $("#tabs > ul > li").hover(
+                            function() {
+                                //$(this).find("a > img").show();
+                                $(this).css("background-color","#222222");
+                                $(this).css("color","white");
+                            },
+                            function() {
+                                //$(this).find("a > img").hide();
+                                $(this).css("background-color","#cccccc");
+                                $(this).css("color","black");
+                            }
+                    );
+
+                    $("#tabs > ul > li > a").click(function() {
+                       $(this).parent().fadeOut(500); 
+                    });
+                }
                 
-                $("#links").hover(
-                        function() {
-                            $(this).animate({
-                                width: 250
-                            }, 500);
-                        },
-                        function() {
-                            $(this).animate({
-                                width: 50,
-                            }, 500);
-                        }
-                );
-
-                $("#rechts").hover(
-                        function() {
-                            $(this).animate({
-                                width: 250
-                            }, 500);
-                        },
-                        function() {
-                            $(this).animate({
-                                width: 50,
-                            }, 500);
-                        }
-                );
-
-                $("#footer").hover(
-                        function() {
-                            var old_h = $("#wrapper").css("height").split("px")[0];
-                            $("#wrapper").animate({
-                                height: old_h - 200
-                            }, 500);
-                            $(this).animate({
-                                height: 250
-                            }, 500);
-                        },
-                        function() {
-                            $("#wrapper").animate({
-                                height: wrapper_h
-                            }, 500);
-                            $(this).animate({
-                                height: 50
-                            }, 500);
-                        }
-                );
-
-                $("#tabs > ul > li").hover(
-                        function() {
-                            $(this).find("a > img").show();
-                            $(this).css("background-color","#222222");
-                            $(this).css("color","white");
-                        },
-                        function() {
-                            $(this).find("a > img").hide();
-                            $(this).css("background-color","#cccccc");
-                            $(this).css("color","black");
-                        }
-                );
-        
-                $("#tabs > ul > li > a").click(function() {
-                   $(this).parent().fadeOut(500); 
+                $("#createNewFile").click(function() {
+                    $("#tabs > ul").append('<li><a href="#"><img src="images/Close_Box_Red.png"></a>File.hh</li>');
+                    apply();
                 });
+
+                function checkForChanges()
+                {
+                    var tab_h = $("#tabs").height();
+                    var wrapper_h = $("body").height();
+                    $("#head").css("min-height",40 + tab_h);
+                    if($("#footer").height() == 50) {
+                        $("#wrapper").css("height",wrapper_h - (40+tab_h+50));
+                    }
+                    setTimeout(checkForChanges, 100);
+                }
                 
+                apply();
+                checkForChanges();
+
                 $(".theme").click(function(e) {
                     var name = $(this).text().toLowerCase();
                     console.log("click "+name);
                     editor.setTheme("ace/theme/"+name);
-               });
+		});
+
+                $("#tabs > ul > li").on("click", function() {
+                    var name = $(this).find("span").text();
+                    var content = $("textarea[filename='"+name+"']").val();
+                    $("#tabs > ul > .active").removeClass("active");
+                    $(this).addClass("active");
+                    editor.setValue(content);
+                });
             });
         </script>
         <script>
             $(function() {
-                $("#jqxMenu").jqxMenu({width: 'auto', height: '30px', animationShowDuration: 300, animationHideDuration: 200, animationShowDelay: 200});
+                $("#jqxMenu").jqxMenu({width: 'auto', height: '30px', theme: 'ui-le-frog', animationShowDuration: 300, animationHideDuration: 200, animationShowDelay: 200});
             });
         </script>
         <style type="text/css" media="screen">
@@ -104,6 +134,7 @@ and open the template in the editor.
                 height: 100%;
                 width: auto;
                 font-size: 1.0em;
+                //overflow: scroll;
             }     
 
         </style>
@@ -117,7 +148,7 @@ and open the template in the editor.
                         <li>File
                             <ul style='width: 250px;'>
                                 <li><a>New Project</a></li>
-                                <li><a>New File</a></li>
+                                <li><a id="createNewFile">New File</a></li>
                                 <li><a>Open Project</a></li>
                                 <li><a>Open File</a></li>
                                 <li><a>Test File</a></li>
@@ -182,11 +213,8 @@ and open the template in the editor.
             </div>
                 <div id="tabs">
                     <ul>
-                        <li>Fiiiiiillllllleeeee.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
-                        <li>File.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
-                        <li>File.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
-                        <li>File.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
-                        <li>File.hh <a href="#"><img src="images/Close_Box_Red.png"></a></li>
+                        <li><a href="#"><img src="images/Close_Box_Red.png"></a><span>issue.hh</span></li>
+                        <li><a href="#"><img src="images/Close_Box_Red.png"></a><span>task.hh</span></li>               
                     </ul>
                 </div>
                 <div id="icons"></div>
@@ -217,10 +245,66 @@ and open the template in the editor.
                 name: 'save',
                 bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
                 exec: function(editor) {
+                    var name = $("#tabs > ul .active").find("span").text();
+                    console.log(name);
                     console.log(editor.getValue());
                 },
                 readOnly: true // false if this command should not apply in readOnly mode
             });
             </script>
+            <div id="files">
+                <textarea filename="issue.hh" class="file"><?hh //strict
+
+require_once Config::ROOT."abstract/scrumElement.hh";
+require_once Config::ROOT."abstract/JSON.hh";
+require_once Config::ROOT."enum/severity.hh";
+require_once Config::ROOT."enum/priority.hh";
+require_once Config::ROOT."enum/status.hh";
+
+
+class Issue extends ScrumElement {
+
+    public function toJSON() :string {
+        //UNSAFE
+        $sev = Severity::getNames();
+        $prio = Priority::getNames();
+        $stat = Status::getNames();
+        $ass = ($this->assignee->getUsername()!=="");
+        $assigned = "NO";
+        if($ass) {
+            $assigned = "YES";
+            $assDate = $this->assignDate->format("d.m.Y H:i");
+            $assUser = $this->assignee->getUsername();
+        } else {
+            $assDate = "-";
+            $assUser = "-";
+        }
+
+        return  "{  \"ID\":\"".$this->ID."\",
+                    \"severity\":\"".$sev[$this->severity]."\",
+                    \"priority\":\"".$prio[$this->priority]."\",
+                    \"status\":\"".$stat[$this->status]."\",
+                    \"createDate\":\"".$this->createDate->format("d.m.Y H:i")."\",
+                    \"assignDate\":\"".$assDate."\",
+                    \"assignee\":\"".$assUser."\",
+                    \"creator\":\"".$this->creator->getUsername()."\",
+                    \"title\":\"".$this->title."\",
+                    \"assigned\":\"".$assigned."\",
+                    \"text\":\"".$this->text."\",
+                    \"Type\":\"Issue\"}";
+    }
+}</textarea>
+                    
+                <textarea filename="task.hh" class="file"><?hh //strict
+
+require_once Config::ROOT."abstract/scrumElement.hh";
+
+class Task extends ScrumElement {
+
+    public function toJSON() :string {
+        return "{}";
+    }
+}</textarea>
+            </div>
     </body>
 </html>

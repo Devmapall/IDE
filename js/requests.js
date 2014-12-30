@@ -40,5 +40,6 @@ function getProject(project) {
                $(list).append("<li>"+item+"</li>");
            }
         });
+        $("#tree").jstree();
     });
 }

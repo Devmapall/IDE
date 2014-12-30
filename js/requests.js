@@ -40,6 +40,13 @@ function getProject(project) {
                $(list).append("<li>"+item+"</li>");
            }
         });
-        $("#tree").jstree();
+        $("#tree").jstree({
+            "types": {
+                "file": {
+                    "icon" : "glyphicon glyphicon-flash"
+                }
+            },
+            "plugins":["types"]
+        });
     });
 }

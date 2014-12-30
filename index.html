@@ -15,16 +15,30 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
         <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css">
         <link rel="stylesheet" href="jqwidgets/styles/jqx.ui-le-frog.css" type="text/css" />
+        <link rel="stylesheet" href="js/themes/default/style.min.css" />
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
         <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
+        <script type="text/javascript" src="js/jstree.js"></script>
         <script type='text/javascript' src="js/requests.js"></script>
         <script type="text/javascript">
             $(function() {
                 var wrapper_h = $("#wrapper").css("height").split("px")[0];
 		var editor = ace.edit("editor");
-                $("#openProjectDialog").dialog({autoOpen: false, modal: true, width: 300});
+                $("#tree").jstree();
+                $("#openProjectDialog").dialog({autoOpen: false, 
+                                                modal: true, 
+                                                width: 300, 
+                                                buttons: {
+                                                    "Open Project": function() {
+                                                        getProject($("#openProjectList").find(".ui-selected").text());
+                                                        $("#openProjectDialog").dialog("close");
+                                                    }
+                                                    Cancel: function() {
+                                                        dialog.dialog( "close" );
+                                                    }
+                                                },});
 				 
                 function apply() {
 
@@ -114,6 +128,8 @@ and open the template in the editor.
                 
                 apply();
                 checkForChanges();
+                
+                $("#links").click(function(e) { e.preventDefault(); });
 
                 $(".theme").click(function(e) {
                     var name = $(this).text().toLowerCase();
@@ -226,7 +242,18 @@ and open the template in the editor.
                 <div id="icons"></div>
             </div>
             <div id="wrapper">
-                <div id="links">Links</div>
+                <div id="links">
+                    <div id="tree">
+                        <ul>
+                            <li>Root
+                                <ul>
+                                    <li>Child</li>
+                                    <li>Child</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div id="rechts">Rechts</div>
                 <div id="editor"></div>
             </div>
@@ -260,7 +287,6 @@ and open the template in the editor.
             </script>
             <div id="openProjectDialog" title="Open projects">
                 <ul id="openProjectList" style="list-style-type: none;">
-                    
                 </ul>
             </div>
             <div id="files">

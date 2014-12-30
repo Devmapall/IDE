@@ -13,8 +13,8 @@ function getProjects() {
     }).done(function(data) {
         console.log(data.projects);
         data.projects.each(function(i,item) {
-            $("#openProjectsDialog > ul").append("<li>"+item+"</li>");
-            $("#openProjectsDialog").dialog("open");
+            $("#openProjectDialog > ul").append("<li>"+item+"</li>");
+            $("#openProjectDialog").dialog("open");
         });
     });
 }

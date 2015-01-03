@@ -6,9 +6,9 @@ function jsTree() {
         }
         console.log(r.join('/'));
     }).jstree({
-        /*"core": {
+        "core": {
             "check_callback": true
-        },*/
+        },
         "types": {
             "file": {
                 "icon" : "jstree-file"

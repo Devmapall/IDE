@@ -1,6 +1,6 @@
 function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
-        var file = $("#"+data.selected[0]);
+        var file = $("#"+data.selected[0]).text();
         var parent = $($("#"+data.selected[0]).parent().parent().children()[1]).text();
        console.log(parent + "/" + file);
     }).jstree({

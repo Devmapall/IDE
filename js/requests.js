@@ -1,6 +1,6 @@
 function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
-       console.log(data.selected);
+       console.log(data.instance.get_node(data.selected[0]));
     }).jstree({
         "core": {
             "check_callback": true

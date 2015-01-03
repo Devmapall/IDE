@@ -2,7 +2,7 @@ function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
        console.log(data.instance.get_node(data.selected[0]));
        console.log($("#"+data.selected[0]));
-       console.log($($("#j1_5").parent().parent().children()[1]).text());
+       console.log($("#"+data.selected[0]).parent().parent().children()[1]).text();
     }).jstree({
         "core": {
             "check_callback": true

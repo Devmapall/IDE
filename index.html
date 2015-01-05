@@ -73,6 +73,16 @@ and open the template in the editor.
                     $("#tabs > ul > li > a").click(function() {
                        $(this).parent().fadeOut(500); 
                     });
+                    
+                    
+                    $("#tabs > ul > li").click(function() {
+                        console.log("Tab click");
+                        var name = $(this).find("span").text();
+                        var content = $("textarea[filename='"+name+"']").val();
+                        $("#tabs > ul > .active").removeClass("active");
+                        $(this).addClass("active");
+                        editor.setValue(content);
+                    });
                 }
                 
             $(function() {
@@ -120,15 +130,6 @@ and open the template in the editor.
                     console.log("click "+name);
                     editor.setTheme("ace/theme/"+name);
 		});
-
-                $("#tabs > ul > li").on("click", function() {
-                    console.log("Tab click");
-                    var name = $(this).find("span").text();
-                    var content = $("textarea[filename='"+name+"']").val();
-                    $("#tabs > ul > .active").removeClass("active");
-                    $(this).addClass("active");
-                    editor.setValue(content);
-                });
                 
                 $("#leftAnimation").click(function() {
                     if($("#links").width() > 50) {

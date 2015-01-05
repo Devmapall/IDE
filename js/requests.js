@@ -42,10 +42,10 @@ function jsTree() {
                 $(tab).click();
             });
         } else {
-            $("#tabs > ul > li").each(function(i,item) {
+            $("#tabs > ul > li > .path").each(function(i,item) {
                 console.log("Text: "+$(item).text());
-                console.log("Selected: "+$("#"+data.selected[0]).text());
-                if($(item).text() == $("#"+data.selected[0]).text()) {
+                console.log("Selected: "+full_path);
+                if($(item).text() === full_path) {
                     $(item).click();
                 }
             });

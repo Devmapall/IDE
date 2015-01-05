@@ -286,6 +286,25 @@ and open the template in the editor.
                     var path = $("textarea[filename='"+name+"']").attr("path");
                     console.log(path);
                     console.log(editor.getValue());
+                    
+                    $.ajax({
+                       url: "http://ide.mykey.to:8080/index.hh",
+                       type: "POST",
+                       data: {
+                           action: "saveFile",
+                           file: path,
+                           content: editor.getValue()
+                       },
+                       dataType: 'json',
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        crossDomain: true
+                    }).done(function(data) {
+                        if(data.result == "success") {
+                            console.log("Saved");
+                        }
+                    });
                 },
                 readOnly: true // false if this command should not apply in readOnly mode
             });

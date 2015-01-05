@@ -14,7 +14,7 @@ function getParents(child) {
 function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
         var file = $("#"+data.selected[0]);       
-        if($(file).text().indexOf(".hh") >= 0) {
+        if($(file).text().indexOf(".") >= 0) {
             var path = getParents(file);
             var full_path = "/var/www/hack/"+ activeProject + "/" + path + $(file).text();
 

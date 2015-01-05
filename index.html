@@ -73,6 +73,8 @@ and open the template in the editor.
                     );
 
                     $("#tabs > ul > li > a").click(function() {
+                       var path = $(this).parent().find(".path").text();
+                       $("textarea[path='"+path+"'").remove();
                        $(this).parent().fadeOut(500); 
                     });
                     

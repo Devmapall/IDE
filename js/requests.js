@@ -14,7 +14,7 @@ function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
         var file = $("#"+data.selected[0]);
         var path = getParents(file);
-        console.log("/var/www/hack/"+ activeProject + "/" + path + "/" + $(file).text());
+        console.log("/var/www/hack/"+ activeProject + "/" + path + $(file).text());
     }).jstree({
         "core": {
             "check_callback": true

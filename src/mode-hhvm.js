@@ -32,11 +32,11 @@ var HHVMHighlightRules = function() {
             },
             {
                 token: "support.constant",
-                regex: /(\/\/strict|\/\/partial|\/\/decl)/
+                regex: /(\/\/strict|\/\/partial|\/\/decl|\/\/UNSAFE)/
             },
             {
                 token: "keyword",
-                regex: /(abstract|class|extends|implements|public|private|protected|return|int|string|new|as|case|break|enum|parent|interface)/
+                regex: /(abstract|class|extends|implements|public|private|protected|return|int|string|new|as|case|break|enum|parent|interface|const)/
             },
             {
                 token: "keyword",

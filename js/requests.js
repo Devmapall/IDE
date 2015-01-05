@@ -24,29 +24,37 @@ function jsTree() {
         var path = getParents(file);
         var full_path = "/var/www/hack/"+ activeProject + "/" + path + $(file).text();
         
-        $.ajax({
-            url: "http://ide.mykey.to:8080/index.hh",
-            type: "POST",
-            data: {
-                action: "getFile",
-                file: full_path
-            },
-            dataType: 'json',
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true
-        }).done(function(data) {
-            var splits = data.path.split("/");
-            var file = splits[splits.length-1];
-            var tab = $('<li><a href="#"><img src="images/Close_Box_Red.png"></a><span>'+file+'</span></li>');
-            $("#tabs > ul").append(tab);
-            var texta = $("<textarea path='"+data.path+"' filename='"+file+"' class='file'>"+data.content+"</textarea>");
-            $("#files").append(texta);
-            apply();
-            $(tab).click();
-        });
+        if($("textarea[path='"+file+"']").length <= 0) {
         
+            $.ajax({
+                url: "http://ide.mykey.to:8080/index.hh",
+                type: "POST",
+                data: {
+                    action: "getFile",
+                    file: full_path
+                },
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true
+            }).done(function(data) {
+                var splits = data.path.split("/");
+                var file = splits[splits.length-1];
+                var tab = $('<li><a href="#"><img src="images/Close_Box_Red.png"></a><span>'+file+'</span></li>');
+                $("#tabs > ul").append(tab);
+                var texta = $("<textarea path='"+data.path+"' filename='"+file+"' class='file'>"+data.content+"</textarea>");
+                $("#files").append(texta);
+                apply();
+                $(tab).click();
+            });
+        } else {
+            $("#tabs > ul > li").each(function(i,item) {
+                if($(item).text() == data.selected[0]) {
+                    $(item).click();
+                }
+            });
+        }
     }).jstree({
         "core": {
             "check_callback": true

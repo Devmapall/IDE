@@ -11,9 +11,8 @@ function getParents(child) {
 function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
         var file = $("#"+data.selected[0]);
-        console.log(getParents(file));
-        //var parent = $($("#"+data.selected[0]).parent().parent().children()[1]).text();
-       //console.log(parent + "/" + file);
+        var path = getParents(file);
+        console.log(path + "/" + file);
     }).jstree({
         "core": {
             "check_callback": true

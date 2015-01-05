@@ -41,19 +41,19 @@ html, body {
 #tabs {
         //height: 14px;
         width:auto;
-        margin-top: 4px;
-        margin-left: 5px;
-        margin-right: 5px;
+        //margin-top: 4px;
+        //margin-left: 5px;
+        //margin-right: 5px;
         background-color: #ccc;
 }
 
 #tabs ul {
-    border: 1px solid #222;
-    border-bottom: 0px;
+    //border: 1px solid #222;
+    //border-bottom: 0px;
     background-color: #ccc;
     border-radius: 4px;
     margin: 0;
-    margin-top: 5px;
+    //margin-top: 5px;
     padding: 2px;
     list-style-type: none;
     //height: 14px;

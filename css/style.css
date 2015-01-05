@@ -107,3 +107,8 @@ html, body {
     background-color: green;
     color: white;
 }
+
+.hover {
+    background-color: #222;
+    color: white;
+}

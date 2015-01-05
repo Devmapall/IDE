@@ -62,7 +62,7 @@ and open the template in the editor.
                 
             $(function() {
                 editor = ace.edit("editor");
-		
+		newMessageBlink();
                 //$("#tree").jstree();
                 $("#openProjectDialog").dialog({autoOpen: false, 
                                                 modal: true, 
@@ -170,7 +170,8 @@ and open the template in the editor.
                         var message = $(this).val();
                         $("#chatVerlauf").append("<span class='user'>Ich: </span><span class='text'>"+message+"</span><br>");
                         $(this).val("");
-                        newMessageBlink();
+                        var token = $("<div id='newMessageToken' style='display:none;'></div>");
+                        $("#rechts").append(token);
                     }
                 });
             });

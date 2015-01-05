@@ -138,7 +138,9 @@ html, body {
 #chatVerlauf {
     word-wrap: break-word;
     overflow-x: hidden;
-    oferflow-y: scroll;
+    overflow-y: scroll;
+    width:250px;
+    margin-top: 20px;
 }
 
 #chatVerlauf .user {

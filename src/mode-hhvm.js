@@ -36,7 +36,7 @@ var HHVMHighlightRules = function() {
             },
             {
                 token: "keyword",
-                regex: /(abstract|class|extends|implements|public|private|protected|return|int|string|new|as|case|break|enum)/
+                regex: /(abstract|class|extends|implements|public|private|protected|return|int|string|new|as|case|break|enum|parent|interface)/
             },
             {
                 token: "keyword",
@@ -65,6 +65,10 @@ var HHVMHighlightRules = function() {
             {
                 token: "string",
                 regex: /\"(\\.|[^\"])*\"/
+            },
+            {
+                token: "string",
+                regex: /\'(\\.|[^\'])*\'/
             },
             {
                 token: "support.constant",

@@ -30,9 +30,11 @@ function jsTree() {
             },
             crossDomain: true
         }).done(function(data) {
-            console.log(data);
+            var splits = data.path.split("/");
+            var file = splits[splits.length-1];
+            var tab = $('<li><a href="#"><img src="images/Close_Box_Red.png"></a><span>'+file+'</span></li>');
+            $("#tabs > ul").append(tab);
             var texta = $("<textarea filename='"+data.path+"' class='file'>"+data.content+"</textarea>");
-            console.log(texta);
             $("#files").append(texta);
         });
         

@@ -39,26 +39,6 @@ and open the template in the editor.
                             }
                     );
 
-                    $("#footer").hover(
-                            function() {
-                                var old_h = $("#wrapper").css("height").split("px")[0];
-                                $("#wrapper").animate({
-                                    height: old_h - 200
-                                }, 500);
-                                $(this).animate({
-                                    height: 250
-                                }, 500);
-                            },
-                            function() {
-                                $("#wrapper").animate({
-                                    height: wrapper_h
-                                }, 500);
-                                $(this).animate({
-                                    height: 50
-                                }, 500);
-                            }
-                    );
-
                     $("#tabs > ul > li").hover(
                             function() {
                                 //$(this).find("a > img").show();

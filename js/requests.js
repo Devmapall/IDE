@@ -34,9 +34,9 @@ function jsTree() {
             }).done(function(data) {
                 var splits = data.path.split("/");
                 var file = splits[splits.length-1];
-                var tab = $('<li><a href="#"><img src="images/Close_Box_Red.png"></a><span>'+file+'</span></li>');
+                var tab = $('<li><a href="#"><img src="images/Close_Box_Red.png"></a><span>'+file+'</span><span class="path" style="display:none;">'+data.path+'</span></li>');
                 $("#tabs > ul").append(tab);
-                var texta = $("<textarea path='"+data.path+"' filename='"+file+"' class='file'>"+data.content+"</textarea>");
+                var texta = $("<textarea path='"+data.path+"' class='file'>"+data.content+"</textarea>");
                 $("#files").append(texta);
                 apply();
                 $(tab).click();

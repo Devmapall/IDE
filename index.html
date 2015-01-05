@@ -283,9 +283,7 @@ and open the template in the editor.
                 exec: function(editor) {
                     var name = $("#tabs > ul .active").find("span").text();
                     var path = $("textarea[filename='"+name+"']").attr("path");
-                    console.log(path);
-                    console.log(editor.getValue());
-                    $("textarea[fiilename='"+name+"']").val(editor.getValue());
+                    $("textarea[filename='"+name+"']").val(editor.getValue());
                     
                     $.ajax({
                        url: "http://ide.mykey.to:8080/index.hh",

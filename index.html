@@ -26,18 +26,6 @@ and open the template in the editor.
             var editor;
             function apply() {
                 var wrapper_h = $("#wrapper").css("height").split("px")[0];
-                    $("#rechts").hover(
-                            function() {
-                                $(this).animate({
-                                    width: 250
-                                }, 500);
-                            },
-                            function() {
-                                $(this).animate({
-                                    width: 50,
-                                }, 500);
-                            }
-                    );
 
                     $("#tabs > ul > li").hover(
                             function() {
@@ -130,6 +118,24 @@ and open the template in the editor.
                         }, 500);
                     } else {
                         $("#links").animate({
+                            width: 250
+                        }, 500);
+                        $(this).animate({
+                            width: 250
+                        }, 500);
+                    }
+                });
+                
+                $("#rightAnimation").click(function() {
+                    if($("#rechts").width() > 50) {
+                        $("#rechts").animate({
+                            width: 50
+                        }, 500);
+                        $(this).animate({
+                            width: 50
+                        }, 500);
+                    } else {
+                        $("#rechts").animate({
                             width: 250
                         }, 500);
                         $(this).animate({
@@ -270,6 +276,7 @@ and open the template in the editor.
                     </div>
                 </div>
                 <div id="rechts">
+                    <div id="rightAnimation"></div>
                     <div id="chatVerlauf">
                         
                     </div>

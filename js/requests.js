@@ -43,6 +43,8 @@ function jsTree() {
             });
         } else {
             $("#tabs > ul > li").each(function(i,item) {
+                console.log("Text: "+$(item).text());
+                console.log("Selected: "+data.selected[0]);
                 if($(item).text() == data.selected[0]) {
                     $(item).click();
                 }

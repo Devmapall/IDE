@@ -131,6 +131,11 @@ html, body {
 }
 
 #chatVerlauf .user {
-    color: greenyellow;
+    color: green;
+    font-style: italic;
+}
+
+#chatVerlauf .text {
+    color: #444;
     font-style: italic;
 }

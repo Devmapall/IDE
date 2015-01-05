@@ -78,6 +78,7 @@ function getProjects() {
     }).done(function(data) {
         $("#openProjectDialog > ul").find("li").remove();
         $.each(data.projects, function(i, item) {
+            console.log(item);
             $("#openProjectDialog > ul").append("<li class='ui-widget-content'>" + item.project + "</li>");
         });
         $("#openProjectList").selectable();

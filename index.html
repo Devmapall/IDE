@@ -161,8 +161,8 @@ and open the template in the editor.
                     var code = (e.keyCode ? e.keyCode : e.which);
                     if(code === 13) {
                         var message = $(this).val();
-                        $("#chatVerlauf").append("<span class='user'>Ich:</span><span class='text'>"+message+"</span><br>");
-                        $(this).text("");
+                        $("#chatVerlauf").append("<span class='user'>Ich: </span><span class='text'>"+message+"</span><br>");
+                        $(this).val("");
                     }
                 });
             });

@@ -21,9 +21,9 @@ and open the template in the editor.
         <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
         <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
         <script type="text/javascript" src="js/jstree.js"></script>
-        <script src="src/ace.js"></script>
+        
         <script type="text/javascript">
-            var editor = ace.edit("editor");
+            var editor;
             function apply() {
                 var wrapper_h = $("#wrapper").css("height").split("px")[0];
                     $("#rechts").hover(
@@ -93,7 +93,7 @@ and open the template in the editor.
                 }
                 
             $(function() {
-                
+                editor = = ace.edit("editor");
 		
                 //$("#tree").jstree();
                 $("#openProjectDialog").dialog({autoOpen: false, 
@@ -267,7 +267,7 @@ and open the template in the editor.
                 <div id="editor"></div>
             </div>
             <div id="footer"></div>
-            
+            <script src="src/ace.js"></script>
             <script>
             editor.setTheme("ace/theme/twilight");
             editor.getSession().setMode("ace/mode/hhvm");

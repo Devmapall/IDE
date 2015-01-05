@@ -60,13 +60,15 @@ and open the template in the editor.
                     $("#tabs > ul > li").hover(
                             function() {
                                 //$(this).find("a > img").show();
-                                $(this).css("background-color","#222222");
-                                $(this).css("color","white");
+                                if(!$(this).hasClass("active")) {
+                                    $(this).addClass("hover");
+                                }
                             },
                             function() {
                                 //$(this).find("a > img").hide();
-                                $(this).css("background-color","#cccccc");
-                                $(this).css("color","black");
+                                if($(this).hasClass("hover")) {
+                                    $(this).removeClass("hover");
+                                }
                             }
                     );
 

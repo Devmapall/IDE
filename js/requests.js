@@ -14,41 +14,43 @@ function getParents(child) {
 function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
         var file = $("#"+data.selected[0]);       
-        var path = getParents(file);
-        var full_path = "/var/www/hack/"+ activeProject + "/" + path + $(file).text();
-        
-        if($("textarea[path='"+full_path+"']").length <= 0) {
-        
-            $.ajax({
-                url: "http://ide.mykey.to:8080/index.hh",
-                type: "POST",
-                data: {
-                    action: "getFile",
-                    file: full_path
-                },
-                dataType: 'json',
-                xhrFields: {
-                    withCredentials: true
-                },
-                crossDomain: true
-            }).done(function(data) {
-                var splits = data.path.split("/");
-                var file = splits[splits.length-1];
-                var tab = $('<li><a href="#"><img src="images/Close_Box_Red.png"></a><span>'+file+'</span><span class="path" style="display:none;">'+data.path+'</span></li>');
-                $("#tabs > ul").append(tab);
-                var texta = $("<textarea path='"+data.path+"' class='file'>"+data.content+"</textarea>");
-                $("#files").append(texta);
-                apply();
-                $(tab).click();
-            });
-        } else {
-            $("#tabs > ul > li > .path").each(function(i,item) {
-                if($(item).text() === full_path) {
-                    $(item).click();
-                    editor.moveCursorTo(0,0);
-                    editor.clearSelection();
-                }
-            });
+        if($(file).indexOf(".hh") >= 0) {
+            var path = getParents(file);
+            var full_path = "/var/www/hack/"+ activeProject + "/" + path + $(file).text();
+
+            if($("textarea[path='"+full_path+"']").length <= 0) {
+
+                $.ajax({
+                    url: "http://ide.mykey.to:8080/index.hh",
+                    type: "POST",
+                    data: {
+                        action: "getFile",
+                        file: full_path
+                    },
+                    dataType: 'json',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    crossDomain: true
+                }).done(function(data) {
+                    var splits = data.path.split("/");
+                    var file = splits[splits.length-1];
+                    var tab = $('<li><a href="#"><img src="images/Close_Box_Red.png"></a><span>'+file+'</span><span class="path" style="display:none;">'+data.path+'</span></li>');
+                    $("#tabs > ul").append(tab);
+                    var texta = $("<textarea path='"+data.path+"' class='file'>"+data.content+"</textarea>");
+                    $("#files").append(texta);
+                    apply();
+                    $(tab).click();
+                });
+            } else {
+                $("#tabs > ul > li > .path").each(function(i,item) {
+                    if($(item).text() === full_path) {
+                        $(item).click();
+                        editor.moveCursorTo(0,0);
+                        editor.clearSelection();
+                    }
+                });
+            }
         }
     }).jstree({
         "core": {

@@ -157,8 +157,11 @@ and open the template in the editor.
                     checkForChanges();
                 });
                 
-                $('li[data-jstree]').on("click",function() {
-                    console.log("File click");
+                $("#rechts > textarea").keyup(function(e) {
+                    var code = (e.keyCode ? e.keyCode : e.which);
+                    if(code == 13) {
+                        console.log($(this).text());
+                    }
                 });
             });
         </script>

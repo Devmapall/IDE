@@ -23,7 +23,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/jstree.js"></script>
         <script type="text/javascript">
             function apply() {
-
+                var wrapper_h = $("#wrapper").css("height").split("px")[0];
                     $("#rechts").hover(
                             function() {
                                 $(this).animate({
@@ -76,7 +76,7 @@ and open the template in the editor.
                 }
                 
             $(function() {
-                var wrapper_h = $("#wrapper").css("height").split("px")[0];
+                
 		var editor = ace.edit("editor");
                 //$("#tree").jstree();
                 $("#openProjectDialog").dialog({autoOpen: false, 

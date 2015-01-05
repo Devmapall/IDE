@@ -34,7 +34,7 @@ function jsTree() {
             var file = splits[splits.length-1];
             var tab = $('<li><a href="#"><img src="images/Close_Box_Red.png"></a><span>'+file+'</span></li>');
             $("#tabs > ul").append(tab);
-            var texta = $("<textarea filename='"+data.path+"' class='file'>"+data.content+"</textarea>");
+            var texta = $("<textarea path='"+data.path+"' filename='"+file+"' class='file'>"+data.content+"</textarea>");
             $("#files").append(texta);
             apply();
         });

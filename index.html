@@ -95,6 +95,8 @@ and open the template in the editor.
                 $("#openProject").click(function() {
                     getProjects();
                 });
+                
+                $("#chatVerlauf").height($("#rechts").height()-100);
 
                 function checkForChanges()
                 {
@@ -262,7 +264,12 @@ and open the template in the editor.
                         </ul>
                     </div>
                 </div>
-                <div id="rechts">Rechts</div>
+                <div id="rechts">
+                    <div id="chatVerlauf">
+                        
+                    </div>
+                    <textarea rows="2" cols="20"></textarea>
+                </div>
                 <div id="editor"></div>
             </div>
             <div id="footer"><div id="footerAnimation"></div></div>

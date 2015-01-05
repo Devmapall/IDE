@@ -38,6 +38,7 @@ html, body {
          width: 50px;
          float: right;
          border-left:1px solid black;
+         padding: 5px;
 }
 #tabs {
         //height: 14px;

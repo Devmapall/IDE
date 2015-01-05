@@ -1,8 +1,8 @@
 function getParents(child) {
     var string = "";
     $(child).parents().each(function(i,item) {
-        if(item.is("li")) {
-            string = item.find("> a").text()+"/"+string;
+        if($(item).is("li")) {
+            string = $(item).find("> a").text()+"/"+string;
         }
     });
     return string;

@@ -91,6 +91,7 @@ and open the template in the editor.
                     var tab_h = $("#tabs").height();
                     var wrapper_h = $("body").height();
                     $("#head").css("min-height",40 + tab_h);
+                    $("#chatVerlauf").height($("#wrapper").height()-120);
                     if($("#footer").height() == 50) {
                         $("#wrapper").css("height",wrapper_h - (40+tab_h+50));
                     }

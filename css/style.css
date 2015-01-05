@@ -152,3 +152,7 @@ html, body {
     color: #444;
     font-style: italic;
 }
+
+.newMessage {
+    background-color: red;
+}

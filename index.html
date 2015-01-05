@@ -170,6 +170,7 @@ and open the template in the editor.
                         var message = $(this).val();
                         $("#chatVerlauf").append("<span class='user'>Ich: </span><span class='text'>"+message+"</span><br>");
                         $(this).val("");
+                        newMessageBlink();
                     }
                 });
             });

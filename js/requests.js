@@ -129,3 +129,8 @@ function getProject(project) {
         jsTree();
     });
 }
+
+function newMessageBlink() {
+    $("#rightAnimation").toggleClass("newMessage");
+    setTimeout(newMessageBlink,500);
+}

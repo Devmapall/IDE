@@ -43,10 +43,10 @@ function jsTree() {
             });
         } else {
             $("#tabs > ul > li > .path").each(function(i,item) {
-                console.log("Text: "+$(item).text());
-                console.log("Selected: "+full_path);
                 if($(item).text() === full_path) {
                     $(item).click();
+                    editor.moveCursorTo(0,0);
+                    editor.clearSelection();
                 }
             });
         }

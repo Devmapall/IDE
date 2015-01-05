@@ -131,10 +131,10 @@ function getProject(project) {
 }
 
 function newMessageBlink() {
-    if($("#rightAnimation").css("background-color") == "green") {
-        $("#rightAnimation").css("background-color","red");
+    if($("#rightAnimation").css("background-color") == "rgb(0, 128, 0)") {
+        $("#rightAnimation").css("background-color","rgb(255, 0, 0)");
     } else {
-        $("#rightAnimation").css("background-color","green");
+        $("#rightAnimation").css("background-color","rgb(0, 128, 0)");
     }
-    setTimeout(newMessageBlink,500);
+    setTimeout(newMessageBlink,1000);
 }

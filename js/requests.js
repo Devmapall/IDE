@@ -14,6 +14,13 @@ function getParents(child) {
 function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
         var file = $("#"+data.selected[0]);
+        
+        $("#tabs > ul > li").find("> span").each(function(i,item) {
+            if($(item).text() != data.selected[0]) {
+                console.log("file exists!");
+            }
+        });
+        
         var path = getParents(file);
         var full_path = "/var/www/hack/"+ activeProject + "/" + path + $(file).text();
         

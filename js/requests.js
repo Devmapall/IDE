@@ -30,7 +30,8 @@ function jsTree() {
             },
             crossDomain: true
         }).done(function(data) {
-            console.log(data);
+            var texta = $("<textarea filename='"+data.path+"'>"+data.content+"</textarea>");
+            $("#files").append(texta);
         });
         
     }).jstree({

@@ -22,22 +22,7 @@ and open the template in the editor.
         <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
         <script type="text/javascript" src="js/jstree.js"></script>
         <script type="text/javascript">
-            $(function() {
-                var wrapper_h = $("#wrapper").css("height").split("px")[0];
-		var editor = ace.edit("editor");
-                //$("#tree").jstree();
-                $("#openProjectDialog").dialog({autoOpen: false, 
-                                                modal: true, 
-                                                width: 300, 
-                                                buttons: {
-                                                    "Open Project": function() {
-                                                        getProject($("#openProjectList").find(".ui-selected").text());
-                                                        $("#openProjectDialog").dialog("close");
-                                                    }
-                                                }
-                                            });
-				 
-                function apply() {
+            function apply() {
 
                     $("#rechts").hover(
                             function() {
@@ -90,6 +75,21 @@ and open the template in the editor.
                     });
                 }
                 
+            $(function() {
+                var wrapper_h = $("#wrapper").css("height").split("px")[0];
+		var editor = ace.edit("editor");
+                //$("#tree").jstree();
+                $("#openProjectDialog").dialog({autoOpen: false, 
+                                                modal: true, 
+                                                width: 300, 
+                                                buttons: {
+                                                    "Open Project": function() {
+                                                        getProject($("#openProjectList").find(".ui-selected").text());
+                                                        $("#openProjectDialog").dialog("close");
+                                                    }
+                                                }
+                                            });
+
                 $("#createNewFile").click(function() {
                     $("#tabs > ul").append('<li><a href="#"><img src="images/Close_Box_Red.png"></a>File.hh</li>');
                     apply();

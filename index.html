@@ -283,7 +283,8 @@ and open the template in the editor.
                 bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
                 exec: function(editor) {
                     var name = $("#tabs > ul .active").find("span").text();
-                    console.log(name);
+                    var path = $("textarea[filename='"+name+"']").attr("path");
+                    console.log(path);
                     console.log(editor.getValue());
                 },
                 readOnly: true // false if this command should not apply in readOnly mode

@@ -1,3 +1,5 @@
+var activeProject;
+
 function getParents(child) {
     var string = "";
     $(child).parents().each(function(i,item) {
@@ -12,7 +14,7 @@ function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
         var file = $("#"+data.selected[0]);
         var path = getParents(file);
-        console.log(path + "/" + file);
+        console.log("/var/www/hack/"+ activeProject + "/" + path + "/" + $(file).text());
     }).jstree({
         "core": {
             "check_callback": true
@@ -62,6 +64,7 @@ function getProject(project) {
         },
         crossDomain: true
     }).done(function(data) {
+        activeProject = project;
         var list = $("#tree > ul");
         function rec(node,values) {
             $.each(values, function(i,item) {

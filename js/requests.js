@@ -131,6 +131,10 @@ function getProject(project) {
 }
 
 function newMessageBlink() {
-    $("#rightAnimation").toggleClass("newMessage");
+    if($("#rightAnimation").css("background-color") == "green") {
+        $("#rightAnimation").css("background-color","red");
+    } else {
+        $("#rightAnimation").css("background-color","green");
+    }
     setTimeout(newMessageBlink,500);
 }

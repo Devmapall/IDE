@@ -52,7 +52,7 @@ var HHVMHighlightRules = function() {
             },
             {
                 token: "support.constant",
-                regex: /[a-zA-Z_]+(?=\()/
+                regex: /[a-zA-Z_0-9]+(?=\()/
             },
             {
                 token: "support.constant",

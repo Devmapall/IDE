@@ -61,9 +61,8 @@ html, body {
 
 #tabs ul li {
     display: inline-block;
-    border: solid;
-    border-width: 1px 1px 1px 1px;
-    border-color: #222;
+    border: 1px solid #222;
+    border-radius:10px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 3px;
@@ -104,3 +103,7 @@ html, body {
 #openProjectList  { list-style-type: none; margin: 0; padding: 0; width: 60%; }
 #openProjectList  li { margin: 3px; padding: 0.4em; font-size: 1.0em; height: 18px; }
 
+.active {
+    background-color: green;
+    color: white;
+}

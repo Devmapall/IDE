@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Mykey.to HHVM IDE - v0.5</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/style.css" media="screen">
@@ -78,7 +78,6 @@ and open the template in the editor.
                     
                     
                     $("#tabs > ul > li").click(function() {
-                        console.log("Tab click");
                         var name = $(this).find("span").text();
                         var content = $("textarea[filename='"+name+"']").val();
                         $("#tabs > ul > .active").removeClass("active");

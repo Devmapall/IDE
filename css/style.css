@@ -123,3 +123,9 @@ html, body {
     background-color: #222;
     color: white;
 }
+
+#chatVerlauf {
+    word-wrap: break-word;
+    overflow-x: hidden;
+    oferflow-y: scroll;
+}

@@ -36,6 +36,7 @@ function jsTree() {
             $("#tabs > ul").append(tab);
             var texta = $("<textarea filename='"+data.path+"' class='file'>"+data.content+"</textarea>");
             $("#files").append(texta);
+            apply();
         });
         
     }).jstree({

@@ -129,3 +129,8 @@ html, body {
     overflow-x: hidden;
     oferflow-y: scroll;
 }
+
+#chatVerlauf .user {
+    color: greenyellow;
+    font-style: italic;
+}

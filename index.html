@@ -141,9 +141,15 @@ and open the template in the editor.
                         $("#footer").animate({
                             height: 50
                         }, 500);
+                        $("#wrapper").animate({
+                            height: $("#wrapper").height()-50
+                        }, 500);
                     } else {
                         $("#footer").animate({
                             height: 250
+                        }, 500);
+                        $("#wrapper").animate({
+                            height: $("#wrapper").height()-250
                         }, 500);
                     }
                     checkForChanges();

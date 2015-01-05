@@ -1,4 +1,5 @@
 var activeProject;
+var activeFile;
 
 function getParents(child) {
     var string = "";
@@ -14,7 +15,23 @@ function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
         var file = $("#"+data.selected[0]);
         var path = getParents(file);
-        console.log("/var/www/hack/"+ activeProject + "/" + path + $(file).text());
+        var full_path = "/var/www/hack/"+ activeProject + "/" + path + $(file).text();
+        
+        $.ajax({
+            url: "http://ide.mykey.to:8080/index.hh",
+            type: "POST",
+            data: {
+                file: full_path
+            },
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true
+        }).done(function(data) {
+            console.log(data);
+        });
+        
     }).jstree({
         "core": {
             "check_callback": true

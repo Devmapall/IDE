@@ -282,7 +282,7 @@ and open the template in the editor.
                 bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
                 exec: function(editor) {
                     var path = $("#tabs > ul .active").find(".path").text();
-                    $("textarea[path='"+path+"']").val(editor.getValue());
+                    $("textarea[path='"+path+"']").text(editor.getValue());
                     
                     $.ajax({
                        url: "http://ide.mykey.to:8080/index.hh",

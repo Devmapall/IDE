@@ -21,6 +21,7 @@ function jsTree() {
             url: "http://ide.mykey.to:8080/index.hh",
             type: "POST",
             data: {
+                action: "getFile",
                 file: full_path
             },
             dataType: 'json',

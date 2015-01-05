@@ -281,9 +281,8 @@ and open the template in the editor.
                 name: 'save',
                 bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
                 exec: function(editor) {
-                    var name = $("#tabs > ul .active").find("span").text();
-                    var path = $("textarea[filename='"+name+"']").attr("path");
-                    $("textarea[filename='"+name+"']").val(editor.getValue());
+                    var path = $("#tabs > ul .active").find(".path").text();
+                    $("textarea[path='"+path+"']").val(editor.getValue());
                     
                     $.ajax({
                        url: "http://ide.mykey.to:8080/index.hh",

@@ -21,6 +21,7 @@ and open the template in the editor.
         <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
         <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
         <script type="text/javascript" src="js/jstree.js"></script>
+        <script src="src/ace.js"></script>
         <script type="text/javascript">
             var editor = ace.edit("editor");
             function apply() {
@@ -266,9 +267,8 @@ and open the template in the editor.
                 <div id="editor"></div>
             </div>
             <div id="footer"></div>
-            <script src="src/ace.js"></script>
+            
             <script>
-            var editor = ace.edit("editor");
             editor.setTheme("ace/theme/twilight");
             editor.getSession().setMode("ace/mode/hhvm");
 

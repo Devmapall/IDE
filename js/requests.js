@@ -1,16 +1,17 @@
-function getParents(child, string) {
-    if($(child).parent().parent() != $("#tree")) {
-        var next = getParents(child, string);
-        return next + "/" + $($("#"+data.selected[0]).parent().parent().children()[1]).text();
-    } else {
-        return;
-    }
+function getParents(child) {
+    var string = "";
+    $(child).parents().each(function(i,item) {
+        if(item.is("li")) {
+            string = item.find("> a").text()+"/"+string;
+        }
+    });
+    return string;
 }
 
 function jsTree() {
     $("#tree").on('changed.jstree',function(e,data) {
         var file = $("#"+data.selected[0]);
-        console.log(getParents(file,""));
+        console.log(getParents(file));
         //var parent = $($("#"+data.selected[0]).parent().parent().children()[1]).text();
        //console.log(parent + "/" + file);
     }).jstree({

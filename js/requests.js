@@ -31,6 +31,7 @@ function jsTree() {
             crossDomain: true
         }).done(function(data) {
             var texta = $("<textarea filename='"+data.path+"' class='file'>"+data.content+"</textarea>");
+            console.log(texta);
             $("#files").append(texta);
         });
         

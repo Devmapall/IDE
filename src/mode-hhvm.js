@@ -36,7 +36,7 @@ var HHVMHighlightRules = function() {
             },
             {
                 token: "keyword",
-                regex: /(abstract|class|extends|implements|public|private|protected|return|int|string|new|as)/
+                regex: /(abstract|class|extends|implements|public|private|protected|return|int|string|new|as|case|break)/
             },
             {
                 token: "keyword",

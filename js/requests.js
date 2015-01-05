@@ -137,6 +137,8 @@ function newMessageBlink() {
         } else {
             $("#rightAnimation").css("background-color","rgb(0, 128, 0)");
         }
+    } else {
+        $("#rightAnimation").css("background-color","rgb(0, 128, 0)");
     }
     setTimeout(newMessageBlink,1000);
 }

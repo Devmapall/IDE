@@ -156,6 +156,18 @@ and open the template in the editor.
                     }
                 });
                 
+                $("#footerAnimation").click(function() {
+                    if($("#footer").height() > 50) {
+                        $("#footer").animate({
+                            height: 50
+                        }, 500);
+                    } else {
+                        $("#footer").animate({
+                            height: 250
+                        }, 500);
+                    }
+                });
+                
                 $('li[data-jstree]').on("click",function() {
                     console.log("File click");
                 });
@@ -266,7 +278,7 @@ and open the template in the editor.
                 <div id="rechts">Rechts</div>
                 <div id="editor"></div>
             </div>
-            <div id="footer"></div>
+            <div id="footer"><div id="footerAnimation"></div></div>
             <script src="src/ace.js"></script>
             <script>
             editor = ace.edit("editor");

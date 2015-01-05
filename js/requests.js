@@ -131,7 +131,7 @@ function getProject(project) {
 }
 
 function newMessageBlink() {
-    if($("#newMessageToken").length >= 0) {
+    if($("#newMessageToken").length > 0) {
         if($("#rightAnimation").css("background-color") == "rgb(0, 128, 0)") {
             $("#rightAnimation").css("background-color","rgb(255, 0, 0)");
         } else {
